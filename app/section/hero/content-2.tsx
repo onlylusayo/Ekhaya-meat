@@ -77,13 +77,6 @@ export default function EkhayaGallery() {
                     className="object-cover rounded-xl hover:scale-110 transition-all duration-700"
                   />
                 </motion.div>
-
-                {/* Red bottom bar */}
-                <div className="absolute bottom-0 w-full h-10 bg-[#D4AF37]/90 backdrop-blur-lg flex items-center justify-center">
-                  <p className="text-black font-semibold tracking-wide">
-                    Ekhaya Meat
-                  </p>
-                </div>
               </motion.div>
             );
           })}
