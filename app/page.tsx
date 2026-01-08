@@ -15,17 +15,17 @@ export default function Home() {
       </section>
 
       {/* Hero Content / Features */}
-      <section className="w-full px-4 sm:px-6 lg:px-8">
+      <section className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 mt-8 md:mt-12">
         <HeroContent />
       </section>
 
       {/* Gallery Section */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 mt-12">
+      <section className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 mt-8 md:mt-12">
         <EkhayaGallery />
       </section>
 
       {/* Box Features / Highlights */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 mt-12">
+      <section className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 mt-8 md:mt-12">
         <BoxFeature />
       </section>
     </main>
