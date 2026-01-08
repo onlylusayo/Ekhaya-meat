@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Geist, Geist_Mono, Montserrat } from "next/font/google"
 import localFont from "next/font/local"
 import "./globals.css"
 import React from "react"
@@ -18,7 +18,15 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
 })
 
-/* Local Font */
+/* Montserrat (body text) */
+// const montserrat = Montserrat({
+// subsets: ["latin"],
+// weight: ["400", "500", "600", "700"],
+// variable: "--font-montserrat",
+// display: "swap",
+// })
+
+/* Local Ekhaya font (headings) */
 const ekhayaFont = localFont({
   src: "../public/fonts/EkhayaDisplayFont.otf",
   variable: "--font-ekhaya",
@@ -36,17 +44,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`scroll-smooth`}>
       <body
         className={`
-          ${ekhayaFont.variable}
+          antialiased
           ${geistSans.variable}
           ${geistMono.variable}
-          antialiased
         `}
       >
         <Navbar />
-        {children}
+        <div className={`${ekhayaFont.variable} [&_h1]:font-ekhaya [&_h2]:font-ekhaya [&_h3]:font-ekhaya [&_h4]:font-ekhaya [&_h5]:font-ekhaya [&_h6]:font-ekhaya`}>
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

@@ -74,7 +74,7 @@ const BoxFeature = () => {
 
           <div className="text-center md:text-left">
             <h3 className="text-lg font-semibold text-gray-800 mb-2">
-              Farm-Fresh & Locally Sourced
+              Farm Fresh and Locally Sourced
             </h3>
             <p className="text-sm text-gray-600">
               We partner with trusted local farmers who raise livestock

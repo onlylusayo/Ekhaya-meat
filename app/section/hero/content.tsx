@@ -169,7 +169,7 @@ export default function MethodsSection() {
             OUR METHODS
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-[#0c0c0c] mt-4 leading-tight">
-            Pasture-Raised <br /> Promise
+            Pasture Raised <br /> Promise
           </h2>
           <p className="italic text-gray-800 mt-3">
             Animal welfare is of the utmost importance to us.

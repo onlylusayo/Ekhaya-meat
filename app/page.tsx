@@ -1,13 +1,14 @@
-"use client"
-import React from "react"
-import Hero from "./components/hero/page"
-import HeroContent from "./section/hero/content"
-import EkhayaGallery from "./section/hero/content-2"
-import BoxFeature from "./section/hero/content3"
+"use client";
+
+import React from "react";
+import Hero from "./components/hero/page";
+import HeroContent from "./section/hero/content";
+import EkhayaGallery from "./section/hero/content-2";
+import BoxFeature from "./section/hero/content3";
 
 export default function Home() {
   return (
-    <main className="w-full h-full overflow-x-hidden font-ekhaya">
+    <main className="w-full h-full overflow-x-hidden">
       {/* Hero Section */}
       <section className="w-full">
         <Hero />
@@ -28,5 +29,5 @@ export default function Home() {
         <BoxFeature />
       </section>
     </main>
-  )
+  );
 }

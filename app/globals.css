@@ -1,38 +1,52 @@
+/* globals.css */
+
+/* Tailwind must be first */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Local Ekhaya font */
+@font-face {
+  font-family: "Ekhaya";
+  src: url("/fonts/EkhayaDisplayFont.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Theme variables */
+:root {
+  --bg: #ffffff;
+  --fg: #171717;
+
+  /* Body font: Helvetica fallback */
+  --font-body: Helvetica, Arial, system-ui, sans-serif;
+
+  --font-display: "Ekhaya", system-ui, sans-serif;
+
+  --leading: 1.6;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg: #0a0a0a;
+    --fg: #ededed;
   }
 }
 
+/* Base styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  color: var(--fg);
+  background-color: var(--bg);
+  line-height: var(--leading);
 }
 
-
-/* body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-ekhaya), var(--font-geist-sans), Arial, sans-serif;
-} */
- 
-.ekhaya-font {
-  font-family: var(--font-ekhaya-display), sans-serif;
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  margin: 0 0 1rem 0;
 }
-
