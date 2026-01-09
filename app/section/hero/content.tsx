@@ -140,7 +140,7 @@ export default function MethodsSection() {
           className="relative w-full h-[400px]"
         >
           <Image
-            src="/images/farm-1.jpg"
+            src="/images/butcher.png"
             alt="Farm"
             fill
             className="object-cover rounded-lg shadow-lg"
