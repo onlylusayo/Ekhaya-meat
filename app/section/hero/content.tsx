@@ -37,6 +37,34 @@ export default function MethodsSection() {
   const buttonClass =
     "px-6 py-2 bg-[#D4AF37] text-black font-semibold rounded-full hover:bg-[#b9952f] transition-colors duration-300";
 
+  // Card data
+  const cards = [
+    {
+      title: "Cattle",
+      desc: "Experience the bold, hearty flavor of our premium beef...",
+      img: "/images/o1.png",
+      link: "/cattle",
+    },
+    {
+      title: "Sheep",
+      desc: "Indulge in the rich, succulent taste of our sheep meat...",
+      img: "/images/o2.png",
+      link: "/sheep",
+    },
+    {
+      title: "Chicken",
+      desc: "Fresh, tender, and full of flavor...",
+      img: "/images/o-poultry.png",
+      link: "/chicken",
+    },
+    {
+      title: "Goat",
+      desc: "Discover the robust, authentic taste of our goat meat...",
+      img: "/images/o-goat.png",
+      link: "/goat",
+    },
+  ];
+
   return (
     <section className="w-full bg-[#FFF] py-16">
       {/* Top 4 Cards */}
@@ -47,113 +75,32 @@ export default function MethodsSection() {
         whileInView="show"
         viewport={{ once: false, amount: 0.3 }}
       >
-        {/* Cattle */}
-        <motion.div
-          className="border border-[#D4AF37] p-6 rounded-md bg-[#FFF] flex flex-col"
-          variants={cardVariant}
-        >
-          <div className="flex justify-center mb-4">
-            <Image
-              src="/images/o1.png"
-              alt="Beef Steak"
-              width={120}
-              height={80}
-              className="max-w-full h-auto"
-            />
-          </div>
-          <h3 className="text-center text-2xl font-bold text-[#0c0c0c] mb-2">
-            Cattle
-          </h3>
-          <p className="text-center text-gray-700 mb-4">
-            Experience the bold, hearty flavor of our premium beef...
-          </p>
-          <div className="flex justify-center mt-auto">
-            <a href="/cattle" className={buttonClass}>
-              Explore More
-            </a>
-          </div>
-        </motion.div>
-
-        {/* Sheep */}
-        <motion.div
-          className="border border-[#D4AF37] p-6 rounded-md bg-[#FFF] flex flex-col"
-          variants={cardVariant}
-        >
-          <div className="flex justify-center mb-4">
-            <Image
-              src="/images/o2.png"
-              alt="Sheep Meat"
-              width={120}
-              height={80}
-              className="max-w-full h-auto"
-            />
-          </div>
-          <h3 className="text-center text-2xl font-bold text-[#0c0c0c] mb-2">
-            Sheep
-          </h3>
-          <p className="text-center text-gray-700 mb-4">
-            Indulge in the rich, succulent taste of our sheep meat...
-          </p>
-          <div className="flex justify-center mt-auto">
-            <a href="/sheep" className={buttonClass}>
-              Explore More
-            </a>
-          </div>
-        </motion.div>
-
-        {/* Chicken */}
-        <motion.div
-          className="border border-[#D4AF37] p-6 rounded-md bg-[#FFF] flex flex-col"
-          variants={cardVariant}
-        >
-          <div className="flex justify-center mb-4">
-            <Image
-              src="/images/o-poultry.png"
-              alt="Poultry"
-              width={120}
-              height={80}
-              className="max-w-full h-auto"
-            />
-          </div>
-          <h3 className="text-center text-2xl font-bold text-[#0c0c0c] mb-2">
-            Chicken
-          </h3>
-          <p className="text-center text-gray-700 mb-4">
-            Fresh, tender, and full of flavor...
-          </p>
-          <div className="flex justify-center mt-auto">
-            <a href="/chicken" className={buttonClass}>
-              Explore More
-            </a>
-          </div>
-        </motion.div>
-
-        {/* Goat */}
-        <motion.div
-          className="border border-[#D4AF37] p-6 rounded-md bg-[#FFF] flex flex-col"
-          variants={cardVariant}
-        >
-          <div className="flex justify-center mb-4">
-            <Image
-              src="/images/o-goat.png"
-              alt="Goat Meat"
-              width={120}
-              height={80}
-              className="max-w-full h-auto"
-            />
-          </div>
-          <h3 className="text-center text-2xl font-bold text-[#0c0c0c] mb-2">
-            Goat
-          </h3>
-          <p className="text-center text-gray-700 mb-4">
-            Discover the robust, authentic taste of our goat meat...
-          </p>
-          <div className="flex justify-center mt-auto">
-            <a href="/goat" className={buttonClass}>
-              Explore More
-            </a>
-          </div>
-        </motion.div>
+        {cards.map((card, idx) => (
+          <motion.div
+            key={idx}
+            className="border border-[#D4AF37] p-6 rounded-md bg-[#FFF] flex flex-col"
+            variants={cardVariant}
+          >
+            <div className="flex justify-center mb-4">
+              <Image
+                src={card.img}
+                alt={card.title}
+                width={120}
+                height={80}
+                className="max-w-full h-auto"
+              />
+            </div>
+            <h3 className="text-center text-2xl font-bold text-[#0c0c0c] mb-2">
+              {card.title}
+            </h3>
+            <p className="text-center text-gray-700 mb-4">{card.desc}</p>
+            <div className="flex justify-center mt-auto">
+              <a href={card.link} className={buttonClass}>
+                Explore More
+              </a>
+            </div>
+          </motion.div>
+        ))}
       </motion.div>
 
       {/* Bottom Section (Text left, Image right) */}
@@ -193,7 +140,7 @@ export default function MethodsSection() {
           className="relative w-full h-[400px]"
         >
           <Image
-            src="https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=800&q=80"
+            src="/images/farm-1.jpg"
             alt="Farm"
             fill
             className="object-cover rounded-lg shadow-lg"
