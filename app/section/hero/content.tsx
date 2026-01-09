@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -189,10 +190,10 @@ export default function MethodsSection() {
           whileInView="show"
           exit="exit"
           viewport={{ once: false, amount: 0.3 }}
-          className="relative w-full h-[400px] flex justify-start"
+          className="relative w-full h-[400px]"
         >
           <Image
-            src="/images/farm-1.jpg"
+            src="https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=800&q=80"
             alt="Farm"
             fill
             className="object-cover rounded-lg shadow-lg"
