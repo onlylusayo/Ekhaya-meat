@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-// Unsplash images with proper query parameters for Next.js optimization
+// Meat-themed Unsplash images
 const images = [
-  "https://images.unsplash.com/photo-1604908554166-8e8d9a5c3a8c?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1625944525533-473f1a3d6f7d?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1617191518004-339f4f2f0c97?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1603048297172-c92544798d95?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1604908554166-8e8d9a5c3a8c?auto=format&fit=crop&w=1200&q=80", // beef
+  "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1200&q=80", // steak
+  "https://images.unsplash.com/photo-1625944525533-473f1a3d6f7d?auto=format&fit=crop&w=1200&q=80", // chicken
+  "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&q=80", // lamb
+  "https://images.unsplash.com/photo-1617191518004-339f4f2f0c97?auto=format&fit=crop&w=1200&q=80", // goat
+  "https://images.unsplash.com/photo-1603048297172-c92544798d95?auto=format&fit=crop&w=1200&q=80", // mixed cuts
 ];
 
 export default function EkhayaGallery() {
