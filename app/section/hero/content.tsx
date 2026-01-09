@@ -52,12 +52,6 @@ export default function MethodsSection() {
       link: "/sheep",
     },
     {
-      title: "Chicken",
-      desc: "Fresh, tender, and full of flavor...",
-      img: "/images/o-poultry.png",
-      link: "/chicken",
-    },
-    {
       title: "Goat",
       desc: "Discover the robust, authentic taste of our goat meat...",
       img: "/images/o-goat.png",
