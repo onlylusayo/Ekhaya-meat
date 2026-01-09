@@ -63,7 +63,7 @@ export default function MethodsSection() {
     <section className="w-full bg-[#FFF] py-16">
       {/* Top 4 Cards */}
       <motion.div
-        className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-4"
+        className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4"
         variants={container}
         initial="hidden"
         whileInView="show"
