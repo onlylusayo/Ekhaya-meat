@@ -12,7 +12,7 @@ const Hero = () => {
         
         {/* Brand name – Gold */}
         <p className="uppercase tracking-[6px] text-sm md:text-base font-semibold text-white mb-4">
-          Ekhaya Meat
+          Ekhaya Meats
         </p>
 
         {/* Main headline – Gold */}
