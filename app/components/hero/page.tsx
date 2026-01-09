@@ -17,7 +17,7 @@ const Hero = () => {
 
         {/* Main headline – Gold */}
         <h1 className="font-extrabold text-5xl md:text-7xl lg:text-8xl leading-tight text-white drop-shadow-2xl">
-          Premium Imported <br />
+          Premium <br />
           <span className="text-[#D4AF37]">Quality Meat</span>
         </h1>
 
