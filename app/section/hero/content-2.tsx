@@ -8,9 +8,9 @@ const images = [
   "/images/f01.JPG", 
   "/images/f04.JPG", 
   "/images/f08.JPG", 
-  "/images/f09.JPG", 
+  "/images/ca.JPG", 
   "/images/f10.JPG", 
-  "/images/f11.JPG", 
+  "/images/sh.JPG", 
 ];
 
 export default function EkhayaGallery() {
