@@ -18,7 +18,7 @@ const BoxFeature = () => {
 
       <div className="absolute bottom-10 right-10 w-24 h-24 opacity-50 hidden md:block rounded-xl overflow-hidden">
         <Image
-          src="/images/meat/IMG_2905.JPG"
+          src="/images/meat/IMG_2893.JPG"
           alt="Deer sketch"
           fill
           className="object-cover rounded-xl"
@@ -27,7 +27,7 @@ const BoxFeature = () => {
 
       <div className="absolute top-1/4 right-20 w-32 h-32 opacity-50 hidden md:block rounded-2xl overflow-hidden">
         <Image
-          src="/images/"
+          src="/images/meat/IMG_2909.JPG"
           alt="Rosemary sketch"
           fill
           className="object-cover rounded-2xl"
