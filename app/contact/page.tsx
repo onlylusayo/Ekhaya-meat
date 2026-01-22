@@ -1,84 +1,82 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { MessageCircle } from "lucide-react";
 
-/* Motion Variant */
-const fadeUp = {
-  hidden: { y: 30, opacity: 0 },
-  show: { y: 0, opacity: 1, transition: { duration: 0.6 } },
-};
+export default function ContactPage() {
+  const whatsappNumber = "265988966020";
+  const whatsappMessage =
+    "Hello Ekhaya Meats, I would like to place an order. Please assist me with available cuts and pricing.";
 
-export default function ContactUsPage() {
   return (
-    <main className="w-full bg-white">
+    <div className="min-h-screen bg-[#0c0c0c] flex items-center">
+      
+      {/* Sliding Panel */}
+      <motion.section
+        initial={{ x: "-100%" }}
+        animate={{ x: 0 }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
+        className="w-full md:w-1/2 min-h-screen bg-black border-r border-[#D4AF37] flex items-center px-8 md:px-14"
+      >
+        <div className="max-w-md text-white">
 
-      {/* ================= CONTACT SECTION ================= */}
-      <section className="relative bg-black pt-32 pb-24 overflow-hidden min-h-[50vh]">
-        <div className="absolute inset-0 bg-black/70" />
+          {/* Title */}
+          <h1 className="text-4xl font-bold text-[#D4AF37] mb-6">
+            Contact Us
+          </h1>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
+          {/* Hours */}
+          <div className="space-y-4 text-gray-200 text-base leading-relaxed">
+            <p>
+              <span className="font-semibold text-white">
+                Monday – Friday:
+              </span>{" "}
+              07:30 – 17:00
+            </p>
 
-          {/* Contact Text */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
+            <p>
+              <span className="font-semibold text-white">
+                Saturday:
+              </span>{" "}
+              07:30 – 15:00
+            </p>
+
+            <p>
+              <span className="font-semibold text-white">
+                Public Holidays:
+              </span>{" "}
+              07:30 – 12:30
+            </p>
+
+            <p>
+              <span className="font-semibold text-white">
+                Sundays:
+              </span>{" "}
+              Closed
+            </p>
+          </div>
+
+          {/* Divider */}
+          <div className="w-full h-px bg-[#D4AF37]/40 my-8" />
+
+          {/* WhatsApp CTA */}
+          <a
+            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+              whatsappMessage
+            )}`}
+            target="_blank"
+            className="inline-flex items-center gap-3 px-6 py-3 bg-[#25D366] text-black font-semibold rounded-full hover:opacity-90 transition"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-[#D4AF37] mb-8">
-              Contact Ekhaya Meats
-            </h1>
+            <MessageCircle size={22} />
+            Order via WhatsApp
+          </a>
 
-            <div className="space-y-6 text-lg text-gray-200">
-              <p>
-                <span className="font-semibold text-[#D4AF37]">Location:</span>{" "}
-                Gateway Mall, Blantyre, Malawi
-              </p>
-
-              <p>
-                <span className="font-semibold text-[#D4AF37]">Phone / WhatsApp:</span>{" "}
-                <a
-                  href="https://wa.me/265XXXXXXXXX"
-                  target="_blank"
-                  className="underline hover:text-[#D4AF37]"
-                >
-                  +265 XXX XXX XXX
-                </a>
-              </p>
-
-              <p>
-                <span className="font-semibold text-[#D4AF37]">Email:</span>{" "}
-                info@ekhayameats.com
-              </p>
-            </div>
-
-            <div className="mt-10 text-lg text-gray-300">
-              <p className="font-semibold text-[#D4AF37] mb-2">
-                Working Hours
-              </p>
-              <p>Tuesday – Friday</p>
-              <p>08:00 AM – 05:00 PM</p>
-            </div>
-          </motion.div>
-
-          {/* Image Placeholder */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            className="relative h-[260px] md:h-[320px] rounded-2xl overflow-hidden"
-          >
-            <Image
-              src="/images/contact-placeholder.jpg"
-              alt="Ekhaya Meats Location"
-              fill
-              className="object-cover brightness-90"
-            />
-          </motion.div>
-
+          {/* Phone Number */}
+          <p className="mt-4 text-gray-400 text-sm">
+            Or call us on <span className="text-white">+265 988 96 60 20</span>
+          </p>
         </div>
-      </section>
-
-    </main>
+      </motion.section>
+    </div>
   );
 }
