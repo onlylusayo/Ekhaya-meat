@@ -4,165 +4,191 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { FiArrowUp, FiHome } from "react-icons/fi";
+import { FiArrowUp } from "react-icons/fi";
+import Navbar from "../components/layout/navbar";
 
-/* Animations */
+/* ================= Animations ================= */
+
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.15 } },
 };
 
 const cardVariant = {
-  hidden: { y: 50, opacity: 0 },
+  hidden: { y: 40, opacity: 0 },
   show: { y: 0, opacity: 1, transition: { duration: 0.6 } },
 };
 
-/* Dummy images for illustration; replace with real paths if available */
+/* ================= Cut Image Map (ID based) ================= */
+
 const cutImages: Record<string, string> = {
-  "Shoulder blend": "/images/cattle-shoulder.jpg",
-  "Short ribs": "/images/cattle-ribs.jpg",
-  "Top side steak": "/images/cattle-topside.jpg",
-  "T-bone": "/images/cattle-tbone.jpg",
-  "Fillet": "/images/cattle-fillet.jpg",
-  "Rib eye": "/images/cattle-ribeye.jpg",
-  "Hump": "/images/cattle-hump.jpg",
-  "Rump steak": "/images/cattle-rump.jpg",
-  "Sirloin steak": "/images/cattle-sirloin.jpg",
-  "Cut beef": "/images/cattle-cut.jpg",
-  "Lamb caras": "/images/sheep-caras.jpg",
-  "Loin chops": "/images/sheep-loin.jpg",
-  "Lamb legs": "/images/sheep-legs.jpg",
-  "Lamb Stew": "/images/sheep-stew.jpg",
-  "Lamb shanks": "/images/sheep-shanks.jpg",
-  "Lamb neck": "/images/sheep-neck.jpg",
-  "Goat carcass": "/images/goat-carcass.jpg",
-  "Goat stew": "/images/goat-stew.jpg",
-  "Goat legs": "/images/goat-legs.jpg",
-  "Ribs": "/images/goat-ribs.jpg",
-  "Neck": "/images/goat-neck.jpg",
+  "shoulder-blend": "/images/meat/shoulder-blend.jpeg",
+  "short-ribs": "/images/meat/short-ribs.jpeg",
+  "topside-steak": "/images/meat/topside-steak.jpeg",
+  "tbone": "/images/meat/tbone.jpeg",
+  "fillet": "/images/meat/fillet.jpeg",
+  "ribeye": "/images/meat/ribeye.jpeg",
+  "hump": "/images/meat/hump.jpeg",
+  "rump-steak": "/images/meat/rump-steak.jpeg",
+  "sirloin-steak": "/images/meat/sirloin-steak.jpeg",
+  "cut-beef": "/images/meat/cut-beef.jpeg",
+
+  "lamb-caras": "/images/meat/lamb-caras.jpeg",
+  "loin-chops": "/images/meat/loin-chops.jpeg",
+  "lamb-legs": "/images/meat/lamb-legs.jpeg",
+  "lamb-stew": "/images/meat/lamb-stew.jpeg",
+  "lamb-shanks": "/images/meat/lamb-shanks.jpeg",
+  "lamb-neck": "/images/meat/lamb-neck.jpeg",
+
+  "goat-carcass": "/images/meat/goat-carcass.jpg",
+  "goat-stew": "/images/meat/goat-stew.jpg",
+  "goat-legs": "/images/meat/goat-legs.jpg",
+  "ribs": "/images/meat/goat-ribs.jpg",
+  "neck": "/images/meat/goat-neck.jpg",
 };
+
+/* ================= Categories (ID driven) ================= */
 
 const categories = [
   {
     name: "Cattle",
     cuts: [
-      "Shoulder blend",
-      "Short ribs",
-      "Top side steak",
-      "T-bone",
-      "Fillet",
-      "Rib eye",
-      "Hump",
-      "Rump steak",
-      "Sirloin steak",
-      "Cut beef",
+      { id: "shoulder-blend", label: "Shoulder Blend" },
+      { id: "short-ribs", label: "Short Ribs" },
+      { id: "topside-steak", label: "Top Side Steak" },
+      { id: "tbone", label: "T-Bone" },
+      { id: "fillet", label: "Fillet" },
+      { id: "ribeye", label: "Rib Eye" },
+      { id: "hump", label: "Hump" },
+      { id: "rump-steak", label: "Rump Steak" },
+      { id: "sirloin-steak", label: "Sirloin Steak" },
+      { id: "cut-beef", label: "Cut Beef" },
     ],
   },
   {
     name: "Sheep",
     cuts: [
-      "Lamb caras",
-      "Loin chops",
-      "Lamb legs",
-      "Lamb Stew",
-      "Lamb shanks",
-      "Lamb neck",
+      { id: "lamb-caras", label: "Lamb Caras" },
+      { id: "loin-chops", label: "Loin Chops" },
+      { id: "lamb-legs", label: "Lamb Legs" },
+      { id: "lamb-stew", label: "Lamb Stew" },
+      { id: "lamb-shanks", label: "Lamb Shanks" },
+      { id: "lamb-neck", label: "Lamb Neck" },
     ],
   },
   {
     name: "Goat",
     cuts: [
-      "Goat carcass",
-      "Goat stew",
-      "Loin chops",
-      "Goat legs",
-      "Ribs",
-      "Neck",
+      { id: "goat-carcass", label: "Goat Carcass" },
+      { id: "goat-stew", label: "Goat Stew" },
+      { id: "goat-legs", label: "Goat Legs" },
+      { id: "ribs", label: "Ribs" },
+      { id: "neck", label: "Neck" },
     ],
   },
 ];
 
+/* ================= Component ================= */
+
 export default function MeatCutsPage() {
   const [showScroll, setShowScroll] = useState(false);
 
-  // Show scroll up button after scrolling down
   useEffect(() => {
-    const handleScroll = () => setShowScroll(window.scrollY > 300);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setShowScroll(window.scrollY > 300);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
   return (
-    <section className="w-full bg-white py-16 relative">
-      <div className="max-w-7xl mx-auto px-4">
-        <h1 className="text-5xl font-bold text-center mb-16 text-[#D4AF37]">
-          All Meat Cuts
-        </h1>
+    <>
+      <Navbar />
 
-        {categories.map((category) => (
-          <div key={category.name} className="mb-16">
-            {/* Category Header */}
-            <h2 className="text-3xl font-bold mb-6 text-[#0c0c0c]">{category.name}</h2>
+      {/* ===== Hero ===== */}
+      <section className="relative h-[900px] flex items-center justify-center text-center">
+        <Image
+          src="/images/hero-meat.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover"
+        />
 
-            {/* Meat Cuts Grid */}
-            <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: false, amount: 0.3 }}
-            >
-              {category.cuts.map((cut, index) => (
-                <motion.div
-                  key={cut}
-                  variants={cardVariant}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="group cursor-pointer overflow-hidden rounded-2xl border border-[#D4AF37] bg-white shadow-md hover:shadow-xl transition-shadow duration-300"
-                >
-                  <div className="aspect-square overflow-hidden">
-                    <Image
-                      src={cutImages[cut] || "/placeholder.svg"}
-                      alt={cut}
-                      width={400}
-                      height={400}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="text-xl font-semibold text-center mb-2">{cut}</h3>
-                    <p className="text-gray-700 text-center text-sm">{category.name} premium cut</p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        ))}
+        
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/70 z-0" />
 
-        {/* Scroll / Home Buttons */}
-        <div className="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
-          {showScroll && (
-            <button
-              onClick={scrollToTop}
-              className="p-3 rounded-full bg-[#D4AF37] text-black shadow-lg hover:bg-[#b9952f] transition-colors"
-              title="Scroll to top"
-            >
-              <FiArrowUp size={24} />
-            </button>
-          )}
+        <div className="relative z-10 px-4">
+          <h1 className="text-4xl md:text-6xl font-bold text-[#D4AF37] mb-4">
+            Premium Meats, Delivered Fresh
+          </h1>
+          <p className="text-white text-lg md:text-2xl mb-6">
+            Carefully selected livestock, processed with care.
+          </p>
           <Link
-            href="/"
-            className="p-3 rounded-full bg-[#D4AF37] text-black shadow-lg hover:bg-[#b9952f] transition-colors"
-            title="Back to Home"
+            href="#meat-cuts"
+            className="px-6 py-3 bg-[#D4AF37] text-black font-semibold rounded-full hover:bg-[#b9952f]"
           >
-            <FiHome size={24} />
+            Explore Cuts
           </Link>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* ===== Meat Cuts ===== */}
+      <section id="meat-cuts" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+
+          {categories.map((category) => (
+            <div key={category.name} className="mb-20">
+              <h2 className="text-3xl font-bold text-center mb-8">
+                {category.name}
+              </h2>
+
+              <motion.div
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                variants={container}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+              >
+                {category.cuts.map((cut) => (
+                  <motion.div
+                    key={cut.id}
+                    variants={cardVariant}
+                    className="rounded-2xl border border-[#D4AF37] bg-white shadow-md hover:shadow-xl overflow-hidden"
+                  >
+                    <div className="aspect-square">
+                      <Image
+                        src={cutImages[cut.id] ?? "/images/placeholder.jpg"}
+                        alt={cut.label}
+                        width={400}
+                        height={400}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+
+                    <div className="p-5 text-center">
+                      <h3 className="text-xl font-semibold">{cut.label}</h3>
+                      <p className="text-gray-600 text-sm">
+                        {category.name} premium cut
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ===== Scroll To Top ===== */}
+      {showScroll && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-6 right-6 p-3 rounded-full bg-[#D4AF37] shadow-lg hover:bg-[#b9952f]"
+        >
+          <FiArrowUp size={22} />
+        </button>
+      )}
+    </>
   );
 }

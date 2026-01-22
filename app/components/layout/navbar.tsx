@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { name: "HOME", href: "/" },
   { name: "PRODUCTS", href: "/product" },
   { name: "ABOUT US", href: "/us" },
   { name: "CONTACT US", href: "#" },
@@ -21,13 +21,15 @@ export default function Navbar() {
     <header className="absolute top-0 left-0 w-full z-50 pointer-events-auto">
       <div className="flex justify-between items-center max-w-7xl mx-auto p-6">
 
-        {/* LOGO */}
-        <Image
-          src="/images/yeni-logo.png"
-          alt="Ekhaya Meat Logo"
-          width={100}
-          height={105}
-        />
+        {/* LOGO as HOME LINK */}
+        <Link href="/">
+          <Image
+            src="/images/yeni-logo.png"
+            alt="Ekhaya Meat Logo"
+            width={100}
+            height={105}
+          />
+        </Link>
 
         {/* DESKTOP NAV */}
         <nav className="hidden lg:flex space-x-10">

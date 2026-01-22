@@ -5,26 +5,28 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-/* Animations */
+/* ================= Animations ================= */
+
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.15 } },
 };
 
 const cardVariant = {
-  hidden: { y: 50, opacity: 0 },
+  hidden: { y: 40, opacity: 0 },
   show: { y: 0, opacity: 1, transition: { duration: 0.6 } },
 };
 
-/* Meat cuts images */
+/* ================= Meat Cut Images ================= */
+
 const cutImages: Record<string, string> = {
   "Shoulder blend": "/images/cattle-shoulder.jpg",
   "Short ribs": "/images/cattle-ribs.jpg",
   "Top side steak": "/images/cattle-topside.jpg",
   "T-bone": "/images/cattle-tbone.jpg",
-  "Fillet": "/images/cattle-fillet.jpg",
+  Fillet: "/images/cattle-fillet.jpg",
   "Rib eye": "/images/cattle-ribeye.jpg",
-  "Hump": "/images/cattle-hump.jpg",
+  Hump: "/images/cattle-hump.jpg",
   "Rump steak": "/images/cattle-rump.jpg",
   "Sirloin steak": "/images/cattle-sirloin.jpg",
   "Cut beef": "/images/cattle-cut.jpg",
@@ -37,16 +39,17 @@ const cutImages: Record<string, string> = {
   "Goat carcass": "/images/goat-carcass.jpg",
   "Goat stew": "/images/goat-stew.jpg",
   "Goat legs": "/images/goat-legs.jpg",
-  "Ribs": "/images/goat-ribs.jpg",
-  "Neck": "/images/goat-neck.jpg",
+  Ribs: "/images/goat-ribs.jpg",
+  Neck: "/images/goat-neck.jpg",
 };
 
-/* Categories with cuts */
+/* ================= Categories ================= */
+
 const categories = [
   {
     id: "cattle",
     name: "Cattle",
-    description: "Experience the bold, hearty flavor of our premium beef.",
+    description: "Bold, hearty flavour from expertly raised premium beef.",
     image: "/images/o1.png",
     cuts: [
       "Shoulder blend",
@@ -55,80 +58,80 @@ const categories = [
       "T-bone",
       "Fillet",
       "Rib eye",
-      "Hump",
-      "Rump steak",
-      "Sirloin steak",
-      "Cut beef",
     ],
   },
   {
     id: "sheep",
     name: "Sheep",
-    description: "Indulge in the rich, succulent taste of our sheep meat.",
+    description: "Rich, succulent sheep meat prepared to the highest standards.",
     image: "/images/o2.png",
-    cuts: ["Lamb caras", "Loin chops", "Lamb legs", "Lamb Stew", "Lamb shanks", "Lamb neck"],
+    cuts: [
+      "Lamb caras",
+      "Loin chops",
+      "Lamb legs",
+      "Lamb Stew",
+      "Lamb shanks",
+    ],
   },
   {
     id: "goat",
     name: "Goat",
-    description: "Discover the robust, authentic taste of our goat meat.",
+    description: "Authentic goat meat with a deep, distinctive taste.",
     image: "/images/o-goat.png",
-    cuts: ["Goat carcass", "Goat stew", "Loin chops", "Goat legs", "Ribs", "Neck"],
+    cuts: ["Goat carcass", "Goat stew", "Goat legs", "Ribs"],
   },
 ];
 
-export default function MethodsSection() {
-  const buttonClass =
-    "px-6 py-2 bg-[#D4AF37] text-black font-semibold rounded-full hover:bg-[#b9952f] transition-colors duration-300";
+/* ================= Component ================= */
 
-  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+export default function MeatCategoriesSection() {
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const cutsRef = useRef<HTMLDivElement | null>(null);
 
-  const handleView = (categoryId: string) => {
-    setExpandedCategory(categoryId);
-    setTimeout(() => {
-      cutsRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
+  const buttonClass =
+    "px-6 py-2 bg-[#D4AF37] text-black font-semibold rounded-full hover:bg-[#b9952f] transition";
+
+  const handleView = (id: string) => {
+    setActiveCategory(id);
+    setTimeout(() => cutsRef.current?.scrollIntoView({ behavior: "smooth" }), 150);
   };
 
   return (
     <section className="w-full bg-white py-20">
       <div className="max-w-7xl mx-auto px-4">
 
-        {/* ===== Section Title ===== */}
+        {/* ===== Title ===== */}
         <div className="text-center mb-14">
           <h2 className="text-4xl md:text-5xl font-bold text-[#0c0c0c]">
             Our Meat Categories
           </h2>
           <p className="text-gray-700 mt-4 max-w-2xl mx-auto text-lg">
-            Carefully selected livestock, professionally processed and prepared
-            to meet both retail and hospitality standards.
+            Carefully selected livestock, professionally processed for premium quality.
           </p>
         </div>
 
         {/* ===== Category Cards ===== */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+          className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: false, amount: 0.3 }}
         >
-          {categories.map((category, index) => (
+
+          {/* View All Cuts – visible without clicking */}
+          <div className="absolute -top-16 right-0">
+            <Link href="/meat-cuts" className={buttonClass}>
+              View All Cuts
+            </Link>
+          </div>
+
+          {categories.map((category) => (
             <motion.div
               key={category.id}
               variants={cardVariant}
-              className="group relative rounded-2xl border border-[#D4AF37] bg-white shadow-md hover:shadow-xl transition flex flex-col items-center p-8"
+              className="rounded-2xl border border-[#D4AF37] bg-white shadow-md hover:shadow-xl transition p-8 flex flex-col items-center text-center"
             >
-              {/* View All Cuts button ABOVE last card */}
-              {index === categories.length - 1 && (
-                <div className="absolute -top-16 right-0">
-                  <Link href="/meat-cuts" className={buttonClass}>
-                    View All Cuts
-                  </Link>
-                </div>
-              )}
-
               <Image
                 src={category.image}
                 alt={category.name}
@@ -137,55 +140,54 @@ export default function MethodsSection() {
                 className="mb-6 object-contain"
               />
 
-              <h3 className="text-2xl font-bold text-center mb-3">
-                {category.name}
-              </h3>
+              <h3 className="text-2xl font-bold mb-3">{category.name}</h3>
+              <p className="text-gray-700 text-lg mb-6">{category.description}</p>
 
-              <p className="text-gray-700 text-center mb-6 text-lg">
-                {category.description}
-              </p>
+              <button
+                onClick={() => handleView(category.id)}
+                className={buttonClass}
+              >
+                View
+              </button>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* ===== Meat Cuts Preview ===== */}
-        {expandedCategory &&
+        {/* ===== 3 Meat Cuts Preview ===== */}
+        {activeCategory &&
           categories
-            .filter((cat) => cat.id === expandedCategory)
+            .filter((cat) => cat.id === activeCategory)
             .map((cat) => (
-              <div key={cat.id} ref={cutsRef} className="mt-12">
-                <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-3xl font-bold text-[#0c0c0c]">{cat.name} Meat Cuts</h2>
-                  <Link href="/meat-cuts" className={buttonClass}>
-                    View All Cuts
-                  </Link>
-                </div>
+              <div key={cat.id} ref={cutsRef} className="mt-16">
+                <h3 className="text-3xl font-bold mb-6">
+                  {cat.name} Meat Cuts
+                </h3>
 
                 <motion.div
                   className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
                   variants={container}
                   initial="hidden"
                   whileInView="show"
-                  viewport={{ once: false, amount: 0.3 }}
                 >
-                  {cat.cuts.map((cut) => (
+                  {cat.cuts.slice(0, 3).map((cut) => (
                     <motion.div
                       key={cut}
                       variants={cardVariant}
-                      className="group cursor-pointer overflow-hidden rounded-2xl border border-[#D4AF37] bg-white shadow-md hover:shadow-xl transition-shadow duration-300"
+                      className="rounded-2xl border border-[#D4AF37] bg-[#FFF9E6] shadow-md hover:shadow-xl transition overflow-hidden"
                     >
                       <div className="aspect-square overflow-hidden">
                         <Image
-                          src={cutImages[cut] || "/placeholder.svg"}
+                          src={cutImages[cut]}
                           alt={cut}
                           width={400}
                           height={400}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                         />
                       </div>
-                      <div className="p-5">
-                        <h3 className="text-xl font-semibold text-center mb-2">{cut}</h3>
-                        <p className="text-gray-700 text-center text-base">
+
+                      <div className="p-5 text-center">
+                        <h4 className="text-xl font-semibold mb-2">{cut}</h4>
+                        <p className="text-gray-700">
                           {cat.name} premium cut
                         </p>
                       </div>
@@ -195,43 +197,6 @@ export default function MethodsSection() {
               </div>
             ))}
 
-        {/* ===== Our Methods Section ===== */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 mt-20 px-4 gap-10 items-center">
-          <div>
-            <span className="text-sm text-[#D4AF37] tracking-widest font-semibold">
-              OUR METHODS
-            </span>
-
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0c0c0c] mt-4 leading-tight">
-              Pasture Raised <br /> Promise
-            </h2>
-
-            <p className="italic text-gray-800 mt-3 text-lg">
-              Animal welfare is of the utmost importance to us.
-            </p>
-
-            <p className="text-gray-700 mt-4 leading-relaxed text-lg">
-              That’s why we only work with farms and processors that share our
-              passion for good animal husbandry. We promise every animal has been
-              raised on lush pastures naturally, without hormones or antibiotics.
-            </p>
-
-            <div className="mt-6">
-              <Link href="/methods" className={buttonClass}>
-                Our Process
-              </Link>
-            </div>
-          </div>
-
-          <div className="relative w-full h-[400px]">
-            <Image
-              src="/images/our-m.jpg"
-              alt="Pasture raised farming"
-              fill
-              className="object-cover rounded-lg shadow-lg"
-            />
-          </div>
-        </div>
       </div>
     </section>
   );
