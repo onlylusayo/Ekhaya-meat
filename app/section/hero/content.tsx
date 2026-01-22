@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-/* ------------------ Animations ------------------ */
+/* Animations */
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.2 } },
@@ -85,7 +85,7 @@ export default function MethodsSection() {
 
   return (
     <section className="w-full bg-white py-16">
-      {/* ---------- Animal Cards ---------- */}
+      {/* Animal Cards */}
       <motion.div
         className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4"
         variants={container}
@@ -118,7 +118,7 @@ export default function MethodsSection() {
         ))}
       </motion.div>
 
-      {/* ---------- Meat Cuts Section ---------- */}
+      {/* Meat Cuts Section */}
       {selectedCategoryData && (
         <div ref={cutsRef} className="max-w-7xl mx-auto mt-16 px-4">
           <div className="flex justify-between items-center mb-8">
@@ -160,7 +160,7 @@ export default function MethodsSection() {
         </div>
       )}
 
-      {/* ---------- Our Methods Section ---------- */}
+      {/* Our Methods Section */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 mt-20 px-4 gap-10 items-center">
         <motion.div
           variants={textVariant}
@@ -183,7 +183,7 @@ export default function MethodsSection() {
           <p className="text-gray-700 mt-4 leading-relaxed">
             That’s why we only work with farms and processors that share our
             passion for good animal husbandry. We promise every animal has been
-            raised on lush pastures — naturally, without hormones or antibiotics.
+            raised on lush pastures naturally, without hormones or antibiotics.
           </p>
 
           <div className="mt-6">
