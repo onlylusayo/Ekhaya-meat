@@ -86,7 +86,7 @@ export default function AboutUsPage() {
               </h2>
               <p className="text-gray-800 text-lg leading-relaxed mb-4">
                 The butchery forms the foundation of Ekhaya Meats operations.
-                Livestock sourced through approved abattoirs and farm suppliers
+                Livestock sourced through Ekhaya Abattoir
                 is handled by trained personnel under strict hygiene standards.
               </p>
               <p className="text-gray-800 text-lg leading-relaxed">
@@ -127,7 +127,7 @@ export default function AboutUsPage() {
                 Production Operations
               </h2>
               <p className="text-gray-800 text-lg leading-relaxed mb-4">
-                The production facility focuses on value-added processing of
+                The production facility focuses on value added processing of
                 selected meat cuts. Products are prepared through controlled
                 blending, seasoning, and specialized heat treatment processes.
               </p>
