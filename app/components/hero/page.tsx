@@ -24,7 +24,7 @@ const Hero = () => {
         {/* Supporting text – Black */}
         <p className="mt-6 max-w-2xl text-base md:text-lg text-white leading-relaxed">
           Carefully selected cuts, expertly handled and delivered fresh.
-          Ekhaya Meat brings you world class meat with uncompromising quality.
+          Ekhaya Meats brings you world class meat with uncompromising quality.
         </p>
       </section>
     </div>

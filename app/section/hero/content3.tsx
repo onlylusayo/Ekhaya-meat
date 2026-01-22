@@ -43,7 +43,7 @@ const BoxFeature = () => {
         </div>
 
         <h2 className="font-serif text-5xl md:text-6xl font-bold text-gray-800 mb-12">
-          The Ekhaya Experience
+          The Ekhaya Meats Experience
         </h2>
 
         {/* Main Image */}
