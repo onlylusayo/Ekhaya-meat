@@ -16,7 +16,7 @@ const images = [
 
 export default function EkhayaGallery() {
   const [columns, setColumns] = useState(3);
-  const [selected, setSelected] = useState<number | null>(null); // Selected image index
+  const [selected, setSelected] = useState<number | null>(null);
 
   // Adjust columns based on window width
   useEffect(() => {
@@ -30,17 +30,12 @@ export default function EkhayaGallery() {
     return () => window.removeEventListener("resize", updateColumns);
   }, []);
 
-  // Open modal
   const openModal = (index: number) => setSelected(index);
-
-  // Close modal
   const closeModal = () => setSelected(null);
-
-  // Go to previous image
-  const prevImage = () => setSelected((prev) => (prev === null ? 0 : (prev - 1 + images.length) % images.length));
-
-  // Go to next image
-  const nextImage = () => setSelected((prev) => (prev === null ? 0 : (prev + 1) % images.length));
+  const prevImage = () =>
+    setSelected((prev) => (prev === null ? 0 : (prev - 1 + images.length) % images.length));
+  const nextImage = () =>
+    setSelected((prev) => (prev === null ? 0 : (prev + 1) % images.length));
 
   return (
     <section className="py-20 bg-[#fff0]">
@@ -110,59 +105,62 @@ export default function EkhayaGallery() {
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
                 className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-                           z-50 w-11/12 max-w-3xl flex flex-col items-center space-y-4"
+                           z-50 w-11/12 max-w-4xl flex flex-col items-center space-y-4"
               >
-                <div className="relative w-full">
-                  <Image
-                    src={images[selected]}
-                    alt={`Ekhaya Meat Product ${selected + 1}`}
-                    width={800}
-                    height={500}
-                    className="object-cover rounded-xl"
-                  />
+                <div className="relative w-full max-h-[80vh] flex flex-col items-center">
+                  {/* Main Image */}
+                  <div className="w-full flex justify-center relative">
+                    <Image
+                      src={images[selected]}
+                      alt={`Ekhaya Meat Product ${selected + 1}`}
+                      width={800}
+                      height={500}
+                      className="object-contain max-h-[60vh] rounded-xl"
+                    />
 
-                  {/* Close Button */}
-                  <button
-                    onClick={closeModal}
-                    className="absolute top-3 right-3 bg-white p-2 rounded-full shadow-lg hover:bg-gray-200"
-                  >
-                    <FiX size={24} />
-                  </button>
-
-                  {/* Prev / Next */}
-                  <button
-                    onClick={prevImage}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-200"
-                  >
-                    <FiChevronLeft size={24} />
-                  </button>
-                  <button
-                    onClick={nextImage}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-200"
-                  >
-                    <FiChevronRight size={24} />
-                  </button>
-                </div>
-
-                {/* Scrollable Thumbnails */}
-                <div className="flex gap-3 overflow-x-auto py-2">
-                  {images.map((imgThumb, i) => (
-                    <div
-                      key={i}
-                      className={`relative w-24 h-16 flex-shrink-0 cursor-pointer border-2 rounded-lg ${
-                        i === selected ? "border-[#D4AF37]" : "border-transparent"
-                      }`}
-                      onClick={() => setSelected(i)}
+                    {/* Close Button */}
+                    <button
+                      onClick={closeModal}
+                      className="absolute top-3 right-3 bg-white p-2 rounded-full shadow-lg hover:bg-gray-200 z-50"
                     >
-                      <Image
-                        src={imgThumb}
-                        alt={`Thumbnail ${i + 1}`}
-                        width={100}
-                        height={70}
-                        className="object-cover rounded-lg"
-                      />
-                    </div>
-                  ))}
+                      <FiX size={24} />
+                    </button>
+
+                    {/* Prev / Next */}
+                    <button
+                      onClick={prevImage}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-200"
+                    >
+                      <FiChevronLeft size={24} />
+                    </button>
+                    <button
+                      onClick={nextImage}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-200"
+                    >
+                      <FiChevronRight size={24} />
+                    </button>
+                  </div>
+
+                  {/* Thumbnails - no scroll */}
+                  <div className="flex flex-wrap justify-center gap-3 py-3">
+                    {images.map((imgThumb, i) => (
+                      <div
+                        key={i}
+                        className={`relative w-28 h-20 cursor-pointer border-2 rounded-lg ${
+                          i === selected ? "border-[#D4AF37]" : "border-transparent"
+                        }`}
+                        onClick={() => setSelected(i)}
+                      >
+                        <Image
+                          src={imgThumb}
+                          alt={`Thumbnail ${i + 1}`}
+                          width={100}
+                          height={70}
+                          className="object-cover rounded-lg"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             </>

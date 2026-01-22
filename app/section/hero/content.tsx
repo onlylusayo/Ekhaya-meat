@@ -16,7 +16,7 @@ const cardVariant = {
   show: { y: 0, opacity: 1, transition: { duration: 0.6 } },
 };
 
-/* Dummy meat cuts images */
+/* Meat cuts images */
 const cutImages: Record<string, string> = {
   "Shoulder blend": "/images/cattle-shoulder.jpg",
   "Short ribs": "/images/cattle-ribs.jpg",
@@ -41,7 +41,7 @@ const cutImages: Record<string, string> = {
   "Neck": "/images/goat-neck.jpg",
 };
 
-/* Categories with meat cuts */
+/* Categories with cuts */
 const categories = [
   {
     id: "cattle",
@@ -92,39 +92,63 @@ export default function MethodsSection() {
   };
 
   return (
-    <section className="w-full bg-white py-16">
+    <section className="w-full bg-white py-20">
       <div className="max-w-7xl mx-auto px-4">
-        {/* Category Cards */}
+
+        {/* ===== Section Title ===== */}
+        <div className="text-center mb-14">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0c0c0c]">
+            Our Meat Categories
+          </h2>
+          <p className="text-gray-700 mt-4 max-w-2xl mx-auto text-lg">
+            Carefully selected livestock, professionally processed and prepared
+            to meet both retail and hospitality standards.
+          </p>
+        </div>
+
+        {/* ===== Category Cards ===== */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: false, amount: 0.3 }}
         >
-          {categories.map((category) => (
+          {categories.map((category, index) => (
             <motion.div
               key={category.id}
               variants={cardVariant}
-              className="group relative overflow-hidden rounded-2xl border border-[#D4AF37] bg-white shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col items-center p-6"
+              className="group relative rounded-2xl border border-[#D4AF37] bg-white shadow-md hover:shadow-xl transition flex flex-col items-center p-8"
             >
+              {/* View All Cuts button ABOVE last card */}
+              {index === categories.length - 1 && (
+                <div className="absolute -top-16 right-0">
+                  <Link href="/meat-cuts" className={buttonClass}>
+                    View All Cuts
+                  </Link>
+                </div>
+              )}
+
               <Image
                 src={category.image}
                 alt={category.name}
                 width={120}
                 height={80}
-                className="mb-4 object-contain"
+                className="mb-6 object-contain"
               />
-              <h3 className="text-2xl font-bold text-center mb-2">{category.name}</h3>
-              <p className="text-gray-700 text-center mb-4">{category.description}</p>
-              <button className={buttonClass} onClick={() => handleView(category.id)}>
-                View
-              </button>
+
+              <h3 className="text-2xl font-bold text-center mb-3">
+                {category.name}
+              </h3>
+
+              <p className="text-gray-700 text-center mb-6 text-lg">
+                {category.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Meat Cuts Preview Section */}
+        {/* ===== Meat Cuts Preview ===== */}
         {expandedCategory &&
           categories
             .filter((cat) => cat.id === expandedCategory)
@@ -144,7 +168,7 @@ export default function MethodsSection() {
                   whileInView="show"
                   viewport={{ once: false, amount: 0.3 }}
                 >
-                  {cat.cuts.slice(0, 3).map((cut) => (
+                  {cat.cuts.map((cut) => (
                     <motion.div
                       key={cut}
                       variants={cardVariant}
@@ -161,7 +185,7 @@ export default function MethodsSection() {
                       </div>
                       <div className="p-5">
                         <h3 className="text-xl font-semibold text-center mb-2">{cut}</h3>
-                        <p className="text-gray-700 text-center text-sm">
+                        <p className="text-gray-700 text-center text-base">
                           {cat.name} premium cut
                         </p>
                       </div>
@@ -171,7 +195,7 @@ export default function MethodsSection() {
               </div>
             ))}
 
-        {/* Our Methods Section */}
+        {/* ===== Our Methods Section ===== */}
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 mt-20 px-4 gap-10 items-center">
           <div>
             <span className="text-sm text-[#D4AF37] tracking-widest font-semibold">
@@ -182,11 +206,11 @@ export default function MethodsSection() {
               Pasture Raised <br /> Promise
             </h2>
 
-            <p className="italic text-gray-800 mt-3">
+            <p className="italic text-gray-800 mt-3 text-lg">
               Animal welfare is of the utmost importance to us.
             </p>
 
-            <p className="text-gray-700 mt-4 leading-relaxed">
+            <p className="text-gray-700 mt-4 leading-relaxed text-lg">
               That’s why we only work with farms and processors that share our
               passion for good animal husbandry. We promise every animal has been
               raised on lush pastures naturally, without hormones or antibiotics.

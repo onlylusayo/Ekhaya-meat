@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import Image from "next/image"
+import Image from "next/image";
 
 const BoxFeature = () => {
   return (
@@ -64,7 +64,7 @@ const BoxFeature = () => {
             <h3 className="text-lg font-semibold text-gray-800 mb-2">
               Premium Cuts, Carefully Selected
             </h3>
-            <p className="text-sm text-gray-600">
+            <p className="text-gray-600 text-lg">
               At Ekhaya Meats, every cut is chosen for tenderness, flavor, and
               freshness ensuring your meals start with the finest quality.
             </p>
@@ -76,7 +76,7 @@ const BoxFeature = () => {
             <h3 className="text-lg font-semibold text-gray-800 mb-2">
               Farm Fresh and Locally Sourced
             </h3>
-            <p className="text-sm text-gray-600">
+            <p className="text-gray-600 text-lg">
               We partner with trusted local farmers who raise livestock
               responsibly, bringing you meat that is fresh, natural, and
               full of flavor.
@@ -87,7 +87,7 @@ const BoxFeature = () => {
             <h3 className="text-lg font-semibold text-gray-800 mb-2">
               Quality You Can Trust
             </h3>
-            <p className="text-sm text-gray-600">
+            <p className="text-gray-600 text-lg">
               No contracts, no hidden terms just reliable service,
               honest quality, and meat delivered the way it should be.
             </p>
@@ -124,4 +124,4 @@ const BoxFeature = () => {
   )
 }
 
-export default BoxFeature
+export default BoxFeature;
