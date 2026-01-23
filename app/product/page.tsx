@@ -22,12 +22,12 @@ const cardVariant = {
 
 /* Products Data */
 const products = [
-  { name: "Hungarians", image: "/images/splash1.jpg", description: "Delicious Hungarian sausages" },
-  { name: "Chicken Polonies", image: "/images/splash2.jpg", description: "Premium chicken polonies" },
-  { name: "Sliced Polonies", image: "/images/splash3.jpg", description: "Perfect for sandwiches" },
-  { name: "Corned Beef", image: "/images/splash4.jpg", description: "High-quality corned beef" },
-  { name: "Beef Sausages", image: "/images/splash5.jpg", description: "Juicy and flavorful" },
-  { name: "Smoked Meat", image: "/images/splash6.jpg", description: "Richly smoked for taste" },
+  { name: "Hungarians", image: "/images/meat/hungarian-sausages.JPG", description: "Delicious Hungarian sausages" },
+  { name: "Chicken Polonies", image: "/images/meat/Chicken-Polony.JPG", description: "Premium chicken polonies" },
+  { name: "Sliced Polonies", image: "/images/meat/Polony.WEBP", description: "Perfect for sandwiches" },
+  { name: "Corned Beef", image: "/images/meat/corned-beef.JPG", description: "High-quality corned beef" },
+  { name: "Beef Sausages", image: "/images/meat/Beef-Saus.JPG", description: "Juicy and flavorful" },
+  { name: "Smoked Meat", image: "/images/meat/smoked-meat.JPG", description: "Richly smoked for taste" },
 ];
 
 export default function ProductsPage() {
