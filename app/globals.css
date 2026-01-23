@@ -3,7 +3,9 @@
 /* Tailwind must be first */
 @import "tailwindcss";
 
-/* Local Ekhaya font */
+/* ================================
+   Local Ekhaya Font
+================================ */
 @font-face {
   font-family: "Ekhaya";
   src: url("/fonts/EkhayaDisplayFont.otf") format("opentype");
@@ -12,14 +14,18 @@
   font-display: swap;
 }
 
-/* Theme variables */
+/* ================================
+   Theme Variables
+================================ */
 :root {
   --bg: #ffffff;
-  --fg: #171717;
+  --fg: #000000;
 
-  /* Body font: Helvetica fallback */
+  /* Brand Accent */
+  --gold: #D4AF37;
+
+  /* Fonts */
   --font-body: Helvetica, Arial, system-ui, sans-serif;
-
   --font-display: "Ekhaya", system-ui, sans-serif;
 
   --leading: 1.6;
@@ -32,7 +38,9 @@
   }
 }
 
-/* Base styles */
+/* ================================
+   Base Styles
+================================ */
 body {
   font-family: var(--font-body);
   color: var(--fg);
@@ -40,7 +48,9 @@ body {
   line-height: var(--leading);
 }
 
-/* Headings */
+/* ================================
+   Headings
+================================ */
 h1,
 h2,
 h3,
@@ -49,4 +59,33 @@ h5,
 h6 {
   font-family: var(--font-display);
   margin: 0 0 1rem 0;
+}
+
+/* ================================
+   Form Inputs (Reusable)
+================================ */
+.input {
+  width: 100%;
+  border: 1px solid #d1d5db; /* gray-300 */
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.input::placeholder {
+  color: #9ca3af; /* gray-400 */
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.35);
+}
+
+/* Checkbox & radio accent */
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--gold);
 }
