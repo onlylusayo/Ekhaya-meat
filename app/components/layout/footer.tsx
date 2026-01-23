@@ -67,7 +67,6 @@ export default function Footer() {
             <li>Fresh Beef</li>
             <li>Mutton</li>
             <li>Goat</li>
-            <li>Chicken</li>
           </ul>
         </div>
 

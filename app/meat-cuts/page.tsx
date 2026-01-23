@@ -106,7 +106,7 @@ export default function MeatCutsPage() {
       {/* Hero */}
       <section className="relative h-[900px] flex items-center justify-center text-center">
         <Image
-          src="/images/hero-meat.jpg"
+          src="/images/about-hero.jpg"
           alt=""
           fill
           priority
@@ -118,9 +118,10 @@ export default function MeatCutsPage() {
   <div className="absolute inset-0 bg-black/70 z-0" />
 
         <div className="relative z-10 px-4">
-          <h1 className="text-4xl md:text-6xl font-bold text-[#D4AF37] mb-4">
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-extrabold text-[#D4AF37] mb-6 leading-tight">
             Premium Meats, Delivered Fresh
           </h1>
+
           <p className="text-white text-lg md:text-2xl mb-6">
             Carefully selected livestock, processed with care.
           </p>
