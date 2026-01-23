@@ -98,7 +98,7 @@ export default function AboutUsPage() {
 
             <div className="relative h-[360px] rounded-2xl overflow-hidden bg-gray-200 shadow-md">
               <Image
-                src="/images/butchery-placeholder.jpg"
+                src="/images/butcher-image.png"
                 alt="Butchery Operations"
                 fill
                 className="object-cover"
@@ -115,7 +115,7 @@ export default function AboutUsPage() {
           >
             <div className="relative h-[360px] rounded-2xl overflow-hidden bg-gray-200 shadow-md">
               <Image
-                src="/images/production-placeholder.jpg"
+                src="/images/production-image.png"
                 alt="Meat Production"
                 fill
                 className="object-cover"

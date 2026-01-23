@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { FiArrowUp } from "react-icons/fi";
 import Navbar from "../components/layout/navbar";
 
-/* ================= Animations ================= */
+/* Animations */
 
 const container = {
   hidden: {},
@@ -19,12 +19,12 @@ const cardVariant = {
   show: { y: 0, opacity: 1, transition: { duration: 0.6 } },
 };
 
-/* ================= Cut Image Map (ID based) ================= */
+/* Cut Image Map (ID based) */
 
 const cutImages: Record<string, string> = {
   "shoulder-blend": "/images/meat/shoulder-blend.jpeg",
   "short-ribs": "/images/meat/short-ribs.jpeg",
-  "topside-steak": "/images/meat/topside-steak.jpeg",
+  "topside-steak": "/images/meat/top-side.JPG",
   "tbone": "/images/meat/t-bone.jpeg",
   "fillet": "/images/meat/fillet.jpeg",
   "ribeye": "/images/meat/rib-eye2.JPG",
@@ -41,13 +41,13 @@ const cutImages: Record<string, string> = {
   "lamb-neck": "/images/meat/necks.jpeg",
 
   "goat-carcass": "/images/meat/goat-carca.WEBP",
-  "goat-stew": "/images/meat/goat-stew.jpg",
-  "goat-legs": "/images/meat/goat-legs.jpg",
+  // "goat-stew": "/images/meat/goat-stew.jpg",
+  "goat-legs": "/images/meat/g-leg.JPG",
   "ribs": "/images/meat/ribs.jpg",
   "neck": "/images/meat/goat-necks.JPG",
 };
 
-/* ================= Categories (ID driven) ================= */
+/* Categories (ID driven) */
 
 const categories = [
   {
@@ -80,7 +80,7 @@ const categories = [
     name: "Goat",
     cuts: [
       { id: "goat-carcass", label: "Goat Carcass" },
-      { id: "goat-stew", label: "Goat Stew" },
+      // { id: "goat-stew", label: "Goat Stew" },
       { id: "goat-legs", label: "Goat Legs" },
       { id: "ribs", label: "Ribs" },
       { id: "neck", label: "Neck" },
@@ -88,7 +88,7 @@ const categories = [
   },
 ];
 
-/* ================= Component ================= */
+/* Component */
 
 export default function MeatCutsPage() {
   const [showScroll, setShowScroll] = useState(false);
@@ -103,7 +103,7 @@ export default function MeatCutsPage() {
     <>
       <Navbar />
 
-      {/* ===== Hero ===== */}
+      {/* Hero */}
       <section className="relative h-[900px] flex items-center justify-center text-center">
         <Image
           src="/images/hero-meat.jpg"
@@ -133,7 +133,7 @@ export default function MeatCutsPage() {
         </div>
       </section>
 
-      {/* ===== Meat Cuts ===== */}
+      {/* Meat Cuts */}
       <section id="meat-cuts" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
 
@@ -180,7 +180,7 @@ export default function MeatCutsPage() {
         </div>
       </section>
 
-      {/* ===== Scroll To Top ===== */}
+      {/* Scroll To Top */}
       {showScroll && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
