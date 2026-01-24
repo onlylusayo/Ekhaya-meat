@@ -48,12 +48,10 @@ export default function ContactPage() {
     },
   ];
 
-  // Handle input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // Handle WhatsApp submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const whatsappNumber = "265988966020";
@@ -83,28 +81,28 @@ Notes: ${form.notes}`;
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 flex items-center justify-center h-full">
-          <h1 className="text-3xl lg:text-4xl font-bold text-white">Contact Us</h1>
+          <h1 className="text-3xl lg:text-4xl font-bold text-white mb-6">Contact Us</h1>
         </div>
       </header>
 
       {/* PAGE CONTENT */}
       <main className="min-h-screen bg-white px-4 py-16">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
 
           {/* LEFT: CONTACT INFO */}
-          <section className="space-y-10">
-            <h2 className="text-3xl font-bold text-black">Get in Touch</h2>
-            <p className="text-gray-600">
+          <section className="space-y-12">
+            <h2 className="text-3xl font-bold text-black mb-6">Get in Touch</h2>
+            <p className="text-gray-600 mb-8">
               Reach out to our team for inquiries, quotes, or assistance.
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-8">
               {contactItems.map((item, i) => (
                 <div key={i} className="flex gap-4 items-start">
                   <div>{item.icon}</div>
                   <div>
-                    <h3 className="text-lg font-semibold text-black">{item.title}</h3>
-                    <p className="text-gray-600 mb-1">{item.desc}</p>
+                    <h3 className="text-lg font-semibold text-black mb-2">{item.title}</h3>
+                    <p className="text-gray-600 mb-2">{item.desc}</p>
                     {item.lines.map((line, idx) => (
                       <p key={idx} className="text-black font-medium">{line}</p>
                     ))}
@@ -114,8 +112,8 @@ Notes: ${form.notes}`;
             </div>
 
             {/* Delivery Options */}
-            <div>
-              <h3 className="text-lg font-semibold text-black mb-3">Delivery and Pickup</h3>
+            <div className="mt-8">
+              <h3 className="text-lg font-semibold text-black mb-4">Delivery and Pickup</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li><strong className="text-black">Delivery Available</strong> – Orders delivered to your location</li>
                 <li><strong className="text-black">Pickup Available</strong> – Same-day pickup for pre-orders</li>
@@ -125,8 +123,8 @@ Notes: ${form.notes}`;
 
           {/* RIGHT: REQUEST QUOTE FORM */}
           <section className="bg-white shadow-lg rounded-xl p-8">
-            <h2 className="text-2xl font-bold text-black mb-4">Request a Quote</h2>
-            <p className="text-gray-600 mb-6">Fill out the form and we’ll send it directly to our WhatsApp.</p>
+            <h2 className="text-2xl font-bold text-black mb-6">Request a Quote</h2>
+            <p className="text-gray-600 mb-8">Fill out the form and we’ll send it directly to our WhatsApp.</p>
 
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

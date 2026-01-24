@@ -43,7 +43,7 @@ export default function ProductsPage() {
   return (
     <main className="w-full bg-white">
       {/* Hero Section */}
-      <section className="w-full relative bg-black py-32 overflow-hidden"> {/* Darker & more space from navbar */}
+      <section className="w-full relative bg-black py-32 overflow-hidden">
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/60 z-0"></div>
 
@@ -56,12 +56,16 @@ export default function ProductsPage() {
             viewport={{ once: false, amount: 0.3 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold text-[#D4AF37] mb-6 leading-tight">
-              Discover <br /> Ekhaya Meats
+              Fresh. Flavourful. Made for Your Order.
             </h1>
             <p className="text-gray-200 text-lg md:text-xl mb-6">
-              Premium meat products crafted with care and quality. From Hungarians to Chicken Polonies, 
-              we bring the finest selections straight to your table.
+              From perfectly trimmed cuts to signature sausages that have become family favourites, 
+              discover why thousands across Malawi choose Ekhaya for quality that's never kept waiting on a shelf.
             </p>
+            {/* Optional Badge */}
+            <span className="inline-block mt-4 px-4 py-2 bg-[#D4AF37]/20 text-[#D4AF37] font-semibold rounded-full text-sm">
+              100% Order-Driven Production
+            </span>
           </motion.div>
 
           {/* Hero Image */}
@@ -73,10 +77,10 @@ export default function ProductsPage() {
             className="relative w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl"
           >
             <Image
-              src="/images/bground.png" 
+              src="/images/bground.png"
               alt="Ekhaya Meats Hero"
               fill
-              className="object-cover brightness-90 drop-shadow-[0_0_30px_rgba(212,175,55,0.7)]" // glowing effect
+              className="object-cover brightness-90 drop-shadow-[0_0_30px_rgba(212,175,55,0.7)]"
             />
           </motion.div>
         </div>
