@@ -64,7 +64,7 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-semibold mb-4 text-[#D4AF37]">Products</h3>
           <ul className="space-y-3 text-gray-300">
-            <li>Fresh Beef</li>
+            <li>Beef</li>
             <li>Mutton</li>
             <li>Goat</li>
           </ul>

@@ -54,16 +54,16 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const whatsappNumber = "265988966020";
+    const whatsappNumber = "265997221996";
     const message = `Hello, I would like to request a quote:
-Name: ${form.name}
-Email: ${form.email}
-Phone: ${form.phone}
-Company: ${form.company}
-Product Category: ${form.category}
-Quantity (kg): ${form.quantity}
-Delivery Preference: ${form.delivery}
-Notes: ${form.notes}`;
+      Name: ${form.name}
+      Email: ${form.email}
+      Phone: ${form.phone}
+      Company: ${form.company}
+      Product Category: ${form.category}
+      Quantity (kg): ${form.quantity}
+      Delivery Preference: ${form.delivery}
+      Notes: ${form.notes}`;
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
@@ -139,7 +139,7 @@ Notes: ${form.notes}`;
                   <option value="">Select a product category *</option>
                   <option>Beef</option>
                   <option>Lamb</option>
-                  <option>Pork</option>
+                  <option>Goat</option>
                 </select>
                 <input className="input w-full" placeholder="Estimated Quantity (kg) *" name="quantity" value={form.quantity} onChange={handleChange} />
               </div>

@@ -61,7 +61,7 @@ export default function ProductsPage() {
             </h1>
             <p className="text-gray-200 text-lg md:text-xl mb-6">
               From perfectly trimmed cuts to signature sausages that have become family favourites, 
-              discover why thousands across Malawi choose Ekhaya for quality that's never kept waiting on a shelf.
+              discover why thousands across Malawi choose Ekhaya for quality that is never kept waiting on a shelf.
             </p>
             {/* Optional Badge */}
             <span className="inline-block mt-4 px-4 py-2 bg-[#D4AF37]/20 text-[#D4AF37] font-semibold rounded-full text-sm">
