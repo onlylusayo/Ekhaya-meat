@@ -23,7 +23,7 @@ const cardVariant = {
 /* Products Data */
 const products = [
   { name: "Hungarians", image: "/images/meat/hungarian-sausages.JPG", description: "Delicious Hungarian sausages" },
-  { name: "Chicken Polonies", image: "/images/meat/Chicken-Polony.JPG", description: "Premium chicken polonies" },
+  { name: "Chicken Polonies", image: "/images/meat/c-polony.png", description: "Premium chicken polonies" },
   { name: "Sliced Polonies", image: "/images/meat/Polony.WEBP", description: "Perfect for sandwiches" },
   { name: "Corned Beef", image: "/images/meat/corned-beef.JPG", description: "High-quality corned beef" },
   { name: "Beef Sausages", image: "/images/meat/Beef-Saus.JPG", description: "Juicy and flavorful" },
