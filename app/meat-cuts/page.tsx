@@ -24,7 +24,7 @@ const cardVariant = {
 const cutImages: Record<string, string> = {
   "shoulder-blend": "/images/meat/shoulder-blend.jpeg",
   "short-ribs": "/images/meat/short-ribs.jpeg",
-  "topside-steak": "/images/meat/top-side.JPG",
+  "topside-steak": "/images/meat/top-side.jpg",
   "tbone": "/images/meat/t-bone.jpeg",
   "fillet": "/images/meat/fillet.jpeg",
   "ribeye": "/images/meat/rib-eye2.JPG",
