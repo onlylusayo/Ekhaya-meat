@@ -36,19 +36,18 @@ export default function AboutUsPage() {
             whileInView="show"
           >
             <h1 className="text-5xl md:text-6xl font-bold text-[#D4AF37] mb-6">
-              About Ekhaya Meats
+              The Home of Freshness
             </h1>
 
             <p className="text-gray-200 text-lg leading-relaxed mb-6">
-              Ekhaya Meats is a professionally operated meat processing and butchery
-              enterprise dedicated to supplying high quality fresh and processed
-              meat products to both retail and hospitality markets in Malawi.
+              Built on quality, driven by your needs.
             </p>
 
             <p className="text-gray-300 text-lg leading-relaxed">
-              Our operations are built on structured production systems,
-              disciplined quality control, and an integrated workflow between
-              butchery and meat processing.
+              Ekhaya Meat is a quality-focused meat processor and professional
+              butchery service based in Blantyre, supplying farm-fresh meat to
+              households, retailers, hotels, restaurants, and food service
+              partners across Malawi.
             </p>
           </motion.div>
 
@@ -60,11 +59,33 @@ export default function AboutUsPage() {
             className="relative h-[420px] md:h-[520px] rounded-2xl overflow-hidden shadow-lg"
           >
             <Image
-              src="/images/about-hero-placeholder.jpg"
-              alt="Ekhaya Meats Facility"
+              src="/images/meat/about-image.png"
+              alt="Ekhaya Meat Facility"
               fill
               className="object-cover brightness-90"
             />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ================= OUR STORY ================= */}
+      <section className="py-28 bg-white">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show">
+            <h2 className="text-4xl font-bold text-[#D4AF37] mb-8">
+              Who We Are
+            </h2>
+            <p className="text-gray-800 text-lg leading-relaxed mb-6">
+              At Ekhaya Meat, we believe that every meal deserves to start with
+              the finest quality ingredients. That’s why we’ve dedicated
+              ourselves to providing Malawian households and businesses with
+              meat they can trust.
+            </p>
+            <p className="text-gray-800 text-lg leading-relaxed">
+              From our facility in Blantyre, we serve customers across the
+              country with a commitment to freshness, quality, and reliability.
+              We don’t just supply meat – we deliver peace of mind.
+            </p>
           </motion.div>
         </div>
       </section>
@@ -81,18 +102,22 @@ export default function AboutUsPage() {
             className="grid grid-cols-1 md:grid-cols-2 gap-14 items-center"
           >
             <div>
-              <h2 className="text-4xl font-bold text-[#D4AF37] mb-6">
-                Butchery Operations
+              <h2 className="text-4xl font-bold text-[#D4AF37] mb-4">
+                From Carcass to Customer
               </h2>
+              <h3 className="text-xl font-semibold mb-6">
+                Expert Cutting and Fresh Meat Preparation
+              </h3>
               <p className="text-gray-800 text-lg leading-relaxed mb-4">
-                The butchery forms the foundation of Ekhaya Meats operations.
-                Livestock sourced through Ekhaya Abattoir
-                is handled by trained personnel under strict hygiene standards.
+                Our process begins when fresh carcasses arrive from the
+                abattoir. Skilled butchers then transform them into premium
+                cuts and fresh meat, tailored to customer specifications.
               </p>
               <p className="text-gray-800 text-lg leading-relaxed">
-                Carcasses are divided into primary sections, trimmed, and cut
-                according to professional standards and market requirements,
-                ensuring consistency, yield optimization, and product quality.
+                Trimming is performed primarily on upper carcass sections,
+                overseen by a supervisor to ensure consistent quality. Each
+                production run averages 100 trays of fresh cuts – approximately
+                45 kg of premium meat.
               </p>
             </div>
 
@@ -116,25 +141,25 @@ export default function AboutUsPage() {
             <div className="relative h-[360px] rounded-2xl overflow-hidden bg-gray-200 shadow-md">
               <Image
                 src="/images/production-image.png"
-                alt="Meat Production"
+                alt="Processed Meat Production"
                 fill
                 className="object-cover"
               />
             </div>
 
             <div>
-              <h2 className="text-4xl font-bold text-[#D4AF37] mb-6">
-                Production Operations
+              <h2 className="text-4xl font-bold text-[#D4AF37] mb-4">
+                Processed Meats That Set Us Apart
               </h2>
               <p className="text-gray-800 text-lg leading-relaxed mb-4">
-                The production facility focuses on value added processing of
-                selected meat cuts. Products are prepared through controlled
-                blending, seasoning, and specialized heat treatment processes.
+                Selected meat cuts move into our production facility where
+                they’re transformed into sausages, Viennas, polonies, corned
+                beef, and smoked meats using controlled processes.
               </p>
               <p className="text-gray-800 text-lg leading-relaxed">
-                Production activities are closely supervised to ensure food
-                safety, consistency, and quality before controlled cooling,
-                cold storage, and packaging.
+                All products undergo cold storage before vacuum or tray
+                packaging, locking in freshness and ensuring food safety before
+                delivery.
               </p>
             </div>
           </motion.div>
@@ -146,7 +171,7 @@ export default function AboutUsPage() {
       <section className="py-28 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center text-[#D4AF37] mb-20">
-            Product Range
+            Quality You Can Trust
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -154,52 +179,37 @@ export default function AboutUsPage() {
             <motion.div variants={fadeUp} initial="hidden" whileInView="show"
               className="bg-white border border-[#D4AF37] rounded-2xl p-8 shadow-md">
               <h3 className="text-xl font-semibold mb-4 text-center">
-                Fresh Meat Cuts
+                Farm Fresh and Locally Sourced
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed text-center">
-                Premium cattle, sheep, and goat cuts including shoulder blends,
-                short ribs, fillet, rib eye, sirloin, rump steak, lamb legs,
-                lamb shanks, goat carcass, ribs, and neck cuts.
+                We partner with trusted local farmers who raise livestock
+                responsibly, delivering fresh, natural, flavourful meat.
               </p>
             </motion.div>
 
             <motion.div variants={fadeUp} initial="hidden" whileInView="show"
               className="bg-white border border-[#D4AF37] rounded-2xl p-8 shadow-md">
               <h3 className="text-xl font-semibold mb-4 text-center">
-                Processed Products
+                Order Driven Production
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed text-center">
-                Hungarians, chicken polonies, sliced polonies, and corned beef,
-                produced under controlled conditions for consistency and quality.
+                We prepare what you order, when you order it no contracts,
+                no hidden terms, just honest quality.
               </p>
             </motion.div>
 
             <motion.div variants={fadeUp} initial="hidden" whileInView="show"
               className="bg-white border border-[#D4AF37] rounded-2xl p-8 shadow-md">
               <h3 className="text-xl font-semibold mb-4 text-center">
-                Storage and Quality Control
+                Serving Malawi
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed text-center">
-                All products undergo cold storage before packaging to preserve
-                freshness and ensure compliance with food safety standards.
+                From family meals to full restaurant kitchens, we serve
+                Malawi’s diverse needs with the same care and attention.
               </p>
             </motion.div>
 
           </div>
-        </div>
-      </section>
-
-      {/* ================= DELIVERY ================= */}
-      <section className="py-24 bg-white">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-[#D4AF37] mb-8">
-            Deliveries and Processing Cycle
-          </h2>
-          <p className="text-gray-800 text-lg leading-relaxed">
-            Meat deliveries are received twice weekly to support continuous
-            processing and freshness, ensuring smooth coordination between
-            butchery, production, storage, and packaging.
-          </p>
         </div>
       </section>
 
