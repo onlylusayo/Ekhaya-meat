@@ -75,7 +75,7 @@ export default function Footer() {
           <h3 className="text-xl font-semibold mb-4 text-[#D4AF37]">Contact Us</h3>
           <ul className="space-y-3 text-gray-300">
             <li>Malawi, Chikwawa</li>
-            <li>+265 882 761 779</li>
+            <li>+265 988 966 020</li>
             <li>
               <span
                 onClick={handleEmailClick}
