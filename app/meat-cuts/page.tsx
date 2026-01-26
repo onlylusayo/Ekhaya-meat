@@ -29,9 +29,9 @@ const cutImages: Record<string, string> = {
   "fillet": "/images/meat/fillet.jpeg",
   "ribeye": "/images/meat/rib-eye2.JPG",
   "hump": "/images/meat/hump.JPG",
-  "rump-steak": "/images/meat/rump-steak.jpeg",
+  "rump-steak": "/images/meat/Rump-steak.jpeg",
   "sirloin-steak": "/images/meat/sirlion-2.jpeg",
-  "cut-beef": "/images/meat/cut-beef.jpeg",
+  "cut-beef": "/images/meat/Cut-beef.jpeg",
 
   "lamb-caras": "/images/meat/Lamb-Carcas.JPG",
   "loin-chops": "/images/meat/loin-chops.JPG",
@@ -42,7 +42,7 @@ const cutImages: Record<string, string> = {
 
   "goat-carcass": "/images/meat/goat-carca.WEBP",
   // "goat-stew": "/images/meat/goat-stew.jpg",
-  "goat-legs": "/images/meat/g-leg.JPG",
+  "goat-legs": "/images/meat/g-leg.jpg",
   "ribs": "/images/meat/ribs.jpg",
   "neck": "/images/meat/goat-necks.JPG",
 };
