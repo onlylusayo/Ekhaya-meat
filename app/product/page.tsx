@@ -27,7 +27,8 @@ const products = [
   { name: "Sliced Polonies", image: "/images/meat/Polony.WEBP", description: "Perfect for sandwiches" },
   { name: "Corned Beef", image: "/images/meat/corned-beef.JPG", description: "High-quality corned beef" },
   { name: "Beef Sausages", image: "/images/meat/Beef-Saus.JPG", description: "Juicy and flavorful" },
-  { name: "Smoked Meat", image: "/images/meat/smoked-meat.JPG", description: "Richly smoked for taste" },
+  { name: "Breakfast Sausages", image: "/images/meat/cock-tail.jpg", description: "Juicy and flavorful" },
+  // { name: "Smoked Meat", image: "/images/meat/smoked-meat.JPG", description: "Richly smoked for taste" },
 ];
 
 export default function ProductsPage() {
