@@ -71,15 +71,15 @@ export default function ContactPage() {
   return (
     <>
       {/* HERO */}
-      <header className="relative w-full h-[320px]">
-        <Image
+      <header className="relative w-full h-[140px]">
+        {/* <Image
           src="/images/contact-hero.jpg"
           alt="Ekhaya Meat Contact"
           fill
           priority
           className="object-cover"
-        />
-        <div className="absolute inset-0 bg-black/60" />
+        /> */}
+        <div className="absolute inset-0 bg-black" />
         <div className="relative z-10 flex items-center justify-center h-full">
           <h1 className="text-3xl lg:text-4xl font-bold text-white mb-6">Contact Us</h1>
         </div>
