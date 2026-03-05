@@ -6,12 +6,12 @@ import { useEffect, useState } from "react";
 import { FiX, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const images = [
-  "/images/f01.JPG",
-  "/images/f04.JPG",
-  "/images/f08.JPG",
-  "/images/ca.JPG",
-  "/images/f10.JPG",
-  "/images/sh.JPG",
+  "/images/meat/cock-tail.jpg",
+  "/images/meat/lion-chops.jpeg",
+  "/images/meat/sirlion-2.jpeg",
+  "/images/meat/t-bone.jpeg",
+  "/images/meat/beef-fillet.JPG",
+  "/images/meat/fillet-steak3.JPG",
 ];
 
 export default function EkhayaGallery() {
