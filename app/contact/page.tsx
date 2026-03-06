@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
 export default function ContactPage() {
@@ -14,6 +13,7 @@ export default function ContactPage() {
     quantity: "",
     delivery: "Delivery",
     notes: "",
+    agreed: false,
   });
 
   const contactItems = [
@@ -26,7 +26,7 @@ export default function ContactPage() {
     {
       icon: <Phone className="w-6 h-6 text-[#D4AF37]" />,
       title: "Phone",
-      lines: ["+265 988 96 60 20"], 
+      lines: ["+265 988 96 60 20"],
       desc: "Reach out directly for questions",
     },
     {
@@ -48,23 +48,44 @@ export default function ContactPage() {
     },
   ];
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value, type } = e.target;
+    const checked = e.target instanceof HTMLInputElement ? e.target.checked : false;
+
+    setForm({
+      ...form,
+      [name]: type === "checkbox" ? checked : value,
+    });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!form.agreed) {
+      alert("Please agree to the Terms & Conditions before sending your request.");
+      return;
+    }
+
     const whatsappNumber = "265997221996";
+
     const message = `Hello, I would like to request a quote:
-      Name: ${form.name}
-      Email: ${form.email}
-      Phone: ${form.phone}
-      Company: ${form.company}
-      Product Category: ${form.category}
-      Quantity (kg): ${form.quantity}
-      Delivery Preference: ${form.delivery}
-      Notes: ${form.notes}`;
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+Name: ${form.name}
+Email: ${form.email}
+Phone: ${form.phone}
+Company: ${form.company}
+
+Delivery Preference: ${form.delivery}
+
+Notes:
+${form.notes}`;
+
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+
     window.open(url, "_blank");
   };
 
@@ -72,16 +93,11 @@ export default function ContactPage() {
     <>
       {/* HERO */}
       <header className="relative w-full h-[140px]">
-        {/* <Image
-          src="/images/contact-hero.jpg"
-          alt="Ekhaya Meat Contact"
-          fill
-          priority
-          className="object-cover"
-        /> */}
         <div className="absolute inset-0 bg-black" />
         <div className="relative z-10 flex items-center justify-center h-full">
-          <h1 className="text-3xl lg:text-4xl font-bold text-white mb-6">Contact Us</h1>
+          <h1 className="text-3xl lg:text-4xl font-bold text-white">
+            Contact Us
+          </h1>
         </div>
       </header>
 
@@ -91,7 +107,9 @@ export default function ContactPage() {
 
           {/* LEFT: CONTACT INFO */}
           <section className="space-y-12">
-            <h2 className="text-3xl font-bold text-black mb-6">Get in Touch</h2>
+            <h2 className="text-3xl font-bold text-black mb-6">
+              Get in Touch
+            </h2>
             <p className="text-gray-600 mb-8">
               Reach out to our team for inquiries, quotes, or assistance.
             </p>
@@ -100,11 +118,18 @@ export default function ContactPage() {
               {contactItems.map((item, i) => (
                 <div key={i} className="flex gap-4 items-start">
                   <div>{item.icon}</div>
+
                   <div>
-                    <h3 className="text-lg font-semibold text-black mb-2">{item.title}</h3>
+                    <h3 className="text-lg font-semibold text-black mb-2">
+                      {item.title}
+                    </h3>
+
                     <p className="text-gray-600 mb-2">{item.desc}</p>
+
                     {item.lines.map((line, idx) => (
-                      <p key={idx} className="text-black font-medium">{line}</p>
+                      <p key={idx} className="text-black font-medium">
+                        {line}
+                      </p>
                     ))}
                   </div>
                 </div>
@@ -113,48 +138,99 @@ export default function ContactPage() {
 
             {/* Delivery Options */}
             <div className="mt-8">
-              <h3 className="text-lg font-semibold text-black mb-4">Delivery and Pickup</h3>
+              <h3 className="text-lg font-semibold text-black mb-4">
+                Delivery and Pickup
+              </h3>
+
               <ul className="list-disc list-inside text-gray-700 space-y-2">
-                <li><strong className="text-black">Delivery Available</strong> – Orders delivered to your location</li>
-                <li><strong className="text-black">Pickup Available</strong> – Same-day pickup for pre-orders</li>
+                <li>
+                  <strong className="text-black">Delivery Available</strong> –
+                  Orders delivered to your location
+                </li>
+                <li>
+                  <strong className="text-black">Pickup Available</strong> –
+                  Same-day pickup for pre-orders
+                </li>
               </ul>
             </div>
           </section>
 
           {/* RIGHT: REQUEST QUOTE FORM */}
           <section className="bg-white shadow-lg rounded-xl p-8">
-            <h2 className="text-2xl font-bold text-black mb-6">Request a Quote</h2>
-            <p className="text-gray-600 mb-8">Fill out the form and we’ll send it directly to our WhatsApp.</p>
+            <h2 className="text-2xl font-bold text-black mb-6">
+              Request a Quote
+            </h2>
+
+            <p className="text-gray-600 mb-8">
+              Fill out the form and we’ll send it directly to our WhatsApp.
+            </p>
 
             <form className="space-y-6" onSubmit={handleSubmit}>
+              
+              {/* CONTACT DETAILS */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input className="input" placeholder="Full Name *" name="name" value={form.name} onChange={handleChange} />
-                <input className="input" placeholder="Email Address *" name="email" value={form.email} onChange={handleChange} />
-                <input className="input" placeholder="Phone Number *" name="phone" value={form.phone} onChange={handleChange} />
-                <input className="input" placeholder="Company / Business Name" name="company" value={form.company} onChange={handleChange} />
+                <input
+                  className="input"
+                  placeholder="Full Name *"
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
+                  required
+                />
+
+                <input
+                  className="input"
+                  placeholder="Email Address *"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
+                />
+
+                <input
+                  className="input"
+                  placeholder="Phone Number *"
+                  name="phone"
+                  value={form.phone}
+                  onChange={handleChange}
+                  required
+                />
+
+                <input
+                  className="input"
+                  placeholder="Company / Business Name"
+                  name="company"
+                  value={form.company}
+                  onChange={handleChange}
+                />
               </div>
 
-              <div className="space-y-4">
-                <select className="input w-full" name="category" value={form.category} onChange={handleChange}>
-                  <option value="">Select a product category *</option>
-                  <option>Beef</option>
-                  <option>Lamb</option>
-                  <option>Goat</option>
-                </select>
-                <input className="input w-full" placeholder="Estimated Quantity (kg) *" name="quantity" value={form.quantity} onChange={handleChange} />
-              </div>
-
+              {/* DELIVERY OPTIONS */}
               <div className="flex gap-6">
                 <label className="flex items-center gap-2">
-                  <input type="radio" name="delivery" value="Delivery" checked={form.delivery === "Delivery"} onChange={handleChange} />
+                  <input
+                    type="radio"
+                    name="delivery"
+                    value="Delivery"
+                    checked={form.delivery === "Delivery"}
+                    onChange={handleChange}
+                  />
                   Delivery
                 </label>
+
                 <label className="flex items-center gap-2">
-                  <input type="radio" name="delivery" value="Pickup" checked={form.delivery === "Pickup"} onChange={handleChange} />
+                  <input
+                    type="radio"
+                    name="delivery"
+                    value="Pickup"
+                    checked={form.delivery === "Pickup"}
+                    onChange={handleChange}
+                  />
                   Pickup
                 </label>
               </div>
 
+              {/* NOTES */}
               <textarea
                 rows={4}
                 className="input w-full"
@@ -164,14 +240,30 @@ export default function ContactPage() {
                 onChange={handleChange}
               />
 
+              {/* TERMS */}
               <label className="flex items-start gap-2 text-sm text-gray-600">
-                <input type="checkbox" className="mt-1" />
-                I agree to receive updates and quotes from Ekhaya Meat
+                <input
+                  type="checkbox"
+                  name="agreed"
+                  checked={form.agreed}
+                  onChange={handleChange}
+                  className="mt-1"
+                />
+
+                I agree to the Terms & Conditions and to receive updates and
+                quotes from Ekhaya Meat.
               </label>
 
+              {/* SUBMIT */}
               <button
                 type="submit"
-                className="w-full bg-[#D4AF37] text-black py-3 rounded-lg font-semibold hover:bg-black hover:text-[#D4AF37] transition"
+                disabled={!form.agreed}
+                className={`w-full py-3 rounded-lg font-semibold transition
+                ${
+                  form.agreed
+                    ? "bg-[#D4AF37] text-black hover:bg-black hover:text-[#D4AF37]"
+                    : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                }`}
               >
                 Send Quote Request via WhatsApp
               </button>

@@ -68,11 +68,11 @@ export default function MeatCategoriesSection() {
           viewport={{ once: false, amount: 0.3 }}
         >
           {/* View All Cuts */}
-          <div className="absolute -top-16 right-0">
+          {/* <div className="absolute -top-16 right-0">
             <Link href="/meat-cuts" className={buttonClass}>
               View All Cuts
             </Link>
-          </div>
+          </div> */}
 
           {categories.map((category) => (
             <motion.div
